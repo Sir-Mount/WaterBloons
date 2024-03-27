@@ -36,6 +36,7 @@ public class CactusScript : MonoBehaviour
       
       Vector3 newtarget = player.transform.position;
       newtarget.y = transform.position.y;
+     
       transform.LookAt(newtarget);
    }
    
