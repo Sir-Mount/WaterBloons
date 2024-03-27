@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine.Utility;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class CactusScript : MonoBehaviour
@@ -17,7 +18,7 @@ public class CactusScript : MonoBehaviour
    [SerializeField] private float damageSeconds;
 
    public AudioSource shootAudio;
-
+   
    private enum states
    {
       Normal,
@@ -68,7 +69,7 @@ public class CactusScript : MonoBehaviour
          }
          else if (currentState == states.Damaged)
          {
-            print("to win menu");
+            SceneManager.LoadScene("WinScene");
             currentState = states.Dead;
          }
       }

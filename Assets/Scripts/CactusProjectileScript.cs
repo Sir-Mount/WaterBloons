@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CactusProjectileScript : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class CactusProjectileScript : MonoBehaviour
         moveSpeed = 0.0f;
         if (other.gameObject.CompareTag("Player"))
         {
-            //TODO: Do damage
+            SceneManager.LoadScene("GameOverScene");
         }
         Destroy(gameObject);
     }
