@@ -52,8 +52,9 @@ public class CactusScript : MonoBehaviour
       StartCoroutine(shoot(childNumber));
    }
 
-   private void OnCollisionEnter(Collision other)
+   public void CollisionDetected(Collision other)
    {
+      Debug.Log("Swag");
       if (other.gameObject.CompareTag("Player"))
       {
          if (currentState == states.Normal)
