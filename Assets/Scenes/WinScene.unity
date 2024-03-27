@@ -652,7 +652,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Overprikkeld
+  m_text: You win
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 449fe8c13d7ece3499c85f99ff67b3e1, type: 2}
   m_sharedMaterial: {fileID: 8538544118014710545, guid: 449fe8c13d7ece3499c85f99ff67b3e1, type: 2}
@@ -1214,6 +1214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1828201276}
   - component: {fileID: 1828201275}
+  - component: {fileID: 1828201277}
   m_Layer: 0
   m_Name: MenuSound
   m_TagString: Untagged
@@ -1231,7 +1232,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a4a434e8d47a1ff4a888118070c7cc64, type: 3}
+  m_audioClip: {fileID: 8300000, guid: eba3c34c09965fe4ab2792f1f1889ad8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1332,6 +1333,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!170 &1828201277
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828201274}
+  m_Enabled: 1
+  m_DistortionLevel: 1
 --- !u!1 &1861617435
 GameObject:
   m_ObjectHideFlags: 0
