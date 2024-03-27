@@ -89,9 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump() {
         
-        if(grounded && readyToJump){ 
-            print("jump");
-            
+        if(grounded && readyToJump){
             readyToJump = false;
             jump();
             Invoke(nameof(ResetJump), jumpCooldown);

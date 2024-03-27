@@ -26,5 +26,6 @@ public class CactusProjectileScript : MonoBehaviour
         {
             //TODO: Do damage
         }
+        Destroy(gameObject);
     }
 }
