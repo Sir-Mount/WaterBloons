@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine.Utility;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -40,8 +41,7 @@ public class CactusScript : MonoBehaviour
       transform.LookAt(newtarget);
    }
    
-   IEnumerator shoot(int childNumber)
-   {
+   IEnumerator shoot(int childNumber) {
       if (currentState == states.Dead) yield break;
       GameObject newProjectile = Instantiate(projectilePrefab, transform.GetChild(childNumber).transform.position + transform.forward, transform.rotation);
       
@@ -52,20 +52,23 @@ public class CactusScript : MonoBehaviour
       StartCoroutine(shoot(childNumber));
    }
 
-   private void OnCollisionEnter(Collision other)
-   {
-      if (other.gameObject.CompareTag("Player"))
-      {
+   public void TouchPlayer(Collision other) {
+      
+      if (other.gameObject.CompareTag("Player")) {
          if (currentState == states.Normal)
          {
+            print("damaged");
             currentState = states.Damaged;
             StartCoroutine(waitToHeal());
          }
          else if (currentState == states.Damaged)
          {
+            print("dead");
             currentState = states.Dead;
          }
       }
+
+      other.transform.position = new Vector3(0f, 1f, 0f);
    }
 
    IEnumerator waitToHeal()

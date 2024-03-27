@@ -21,10 +21,10 @@ public class CactusProjectileScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        moveSpeed = 0.0f;
         if (other.gameObject.CompareTag("Player"))
         {
             //TODO: Do damage
         }
+        Destroy(gameObject);
     }
 }
