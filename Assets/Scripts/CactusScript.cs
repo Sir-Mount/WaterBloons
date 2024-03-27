@@ -16,6 +16,8 @@ public class CactusScript : MonoBehaviour
 
    [SerializeField] private float damageSeconds;
 
+   public AudioSource shootAudio;
+
    private enum states
    {
       Normal,
@@ -43,6 +45,9 @@ public class CactusScript : MonoBehaviour
    
    IEnumerator shoot(int childNumber) {
       if (currentState == states.Dead) yield break;
+      
+      shootAudio.Play();
+      
       GameObject newProjectile = Instantiate(projectilePrefab, transform.GetChild(childNumber).transform.position + transform.forward, transform.rotation);
       
       Vector3 newtarget = player.transform.position;
@@ -63,7 +68,7 @@ public class CactusScript : MonoBehaviour
          }
          else if (currentState == states.Damaged)
          {
-            print("dead");
+            print("to win menu");
             currentState = states.Dead;
          }
       }

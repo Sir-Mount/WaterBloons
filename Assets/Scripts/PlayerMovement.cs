@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
     Animator animCon;
+    
+    public AudioSource walkAudio;
+    public AudioSource jumpAudio;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -37,9 +40,11 @@ public class PlayerMovement : MonoBehaviour
         if(grounded){
             rb.drag = groundDrag;
             animCon.SetBool("Grounded", true);
+            
         } else{
             rb.drag = 0f;
             animCon.SetBool("Grounded", false);
+            
         }
     }
 
@@ -53,8 +58,10 @@ public class PlayerMovement : MonoBehaviour
 
         if(moveDir == Vector3.zero){
             animCon.SetBool("Walking", false);
+            walkAudio.volume = 0f;
         } else{
             animCon.SetBool("Walking", true);
+            walkAudio.volume = 1f;
         }
 
         if(grounded){
@@ -66,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void jump() {
+        jumpAudio.Play();
+        
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }

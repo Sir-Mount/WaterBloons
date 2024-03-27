@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 161105493}
   - component: {fileID: 161105492}
   - component: {fileID: 161105496}
+  - component: {fileID: 161105497}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -402,6 +403,50 @@ MonoBehaviour:
   playerObj: {fileID: 865471202}
   rb: {fileID: 7325276894346601113}
   rotSpeed: 10
+--- !u!114 &161105497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161105491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &626998719
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,14 +577,14 @@ PrefabInstance:
       propertyPath: m_ProvidesContacts
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4869833739813300792, guid: 1e36e252f30752a4b9028c26f84a7b70, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5023678202052137827, guid: 1e36e252f30752a4b9028c26f84a7b70, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 6097733693725743321}
-    - target: {fileID: 5023678202052137827, guid: 1e36e252f30752a4b9028c26f84a7b70, type: 3}
-      propertyPath: shootingMTTH
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5492147552534119580, guid: 1e36e252f30752a4b9028c26f84a7b70, type: 3}
       propertyPath: m_Mesh
       value: 
