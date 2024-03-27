@@ -335,3 +335,4 @@ MonoBehaviour:
   player: {fileID: 0}
   shootingMTTH: 2
   projectilePrefab: {fileID: 6107588527724339610, guid: cf81bb0d1b672e64fa8a2428e8300fc8, type: 3}
+  damageSeconds: 2
