@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
@@ -21,19 +22,24 @@ public class PlayerMovement : MonoBehaviour
     bool readyToJump = true;
 
     Rigidbody rb;
+    Animator animCon;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        animCon = GetComponentInChildren<Animator>();
     }
 
     void Update() {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight*0.5f, WhatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight*0.5f + 0.2f, WhatIsGround);
 
         if(grounded){
             rb.drag = groundDrag;
+            animCon.SetBool("Grounded", true);
         } else{
             rb.drag = 0f;
+            animCon.SetBool("Grounded", false);
         }
     }
 
@@ -44,9 +50,19 @@ public class PlayerMovement : MonoBehaviour
 
     void movePlayer() {
         moveDir = orientation.forward * _move.y + orientation.right * _move.x;
-        
-        if(grounded) rb.AddForce(moveDir.normalized * moveSpeed, ForceMode.Force);
-        else if(!grounded) rb.AddForce(moveDir.normalized * moveSpeed * airControl, ForceMode.Force);
+
+        if(moveDir == Vector3.zero){
+            animCon.SetBool("Walking", false);
+        } else{
+            animCon.SetBool("Walking", true);
+        }
+
+        if(grounded){
+            rb.AddForce(moveDir.normalized * moveSpeed, ForceMode.Force);
+        } else if(!grounded){
+            rb.AddForce(moveDir.normalized * moveSpeed * airControl, ForceMode.Force);
+            
+        }
     }
 
     void jump() {
